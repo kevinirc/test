@@ -41,7 +41,7 @@ class LectureListenController extends Controller
         $listen = $request->only('name','script','file','file_type','sender');
         
         if($request->file('file')){
-            $listen['file'] =  $request->file('file')->store('audio');
+            $listen['file'] =  $request->file('file')->store();
         }
 
         File::create($listen);
@@ -80,7 +80,7 @@ class LectureListenController extends Controller
         $listen = $request->only('name','script','file','file_type');
         
         if($request->file('file')){
-            $listen['file'] =  $request->file('file')->store('audio');
+            $listen['file'] =  $request->file('file')->store();
         }
 
         File::where('id', $id)

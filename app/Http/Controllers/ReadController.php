@@ -40,7 +40,7 @@ class ReadController extends Controller
         $read = $request->only('name','script','file','file_type','sender');
         
         if($request->file('file')){
-            $read['file'] =  $request->file('file')->store('audio');
+            $read['file'] =  $request->file('file')->store();
         }
 
         File::create($read);
@@ -79,7 +79,7 @@ class ReadController extends Controller
         $read = $request->only('name','script','file','file_type');
         
         if($request->file('file')){
-            $read['file'] =  $request->file('file')->store('audio');
+            $read['file'] =  $request->file('file')->store();
         }
 
         File::where('id', $id)

@@ -41,7 +41,7 @@ class WatchController extends Controller
         $watch = $request->only('name','script','file','file_type','sender');
         
         if($request->file('file')){
-            $watch['file'] =  $request->file('file')->store('video');
+            $watch['file'] =  $request->file('file')->store();
         }
 
         File::create($watch);
@@ -80,7 +80,7 @@ class WatchController extends Controller
         $watch = $request->only('name','script','file','file_type');
         
         if($request->file('file')){
-            $watch['file'] =  $request->file('file')->store('video');
+            $watch['file'] =  $request->file('file')->store();
         }
 
         File::where('id', $id)
